@@ -2,7 +2,7 @@
 # QNX Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=libxfce4windowing
 pkgver=4.20.4
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Windowing concept abstraction library for Wayland"
 url="https://gitlab.xfce.org/xfce/libxfce4windowing"
 arch="all"
@@ -43,6 +43,7 @@ package() {
     DESTDIR="$pkgdir" meson install --no-rebuild -C output
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 e5c256d5a7c02e56fd409ba84418fd0c8e5c8ff0ca43954f68fd60e16ef4bc16c851cc5855a122496dccc3e6d8feb8ed7befb5a6d38661d66a9070f176114852  libxfce4windowing-libxfce4windowing-4.20.4.tar.bz2
 "
